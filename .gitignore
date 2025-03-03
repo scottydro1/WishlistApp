@@ -1,46 +1,36 @@
-# Node modules
+# Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
+
+# dependencies
+node_modules/
 node_modules/
 
-# Log files
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# Package lock files (choose one package manager)
-package-lock.json
-yarn.lock
-
-# Expo files
+# Expo
 .expo/
-.expo-shared/
+dist/
+web-build/
 
-# Build directories
-android/app/build/
-ios/build/
+# Native
+*.orig.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
 
-# Xcode specific files
-*.pbxuser
-!default.pbxuser
-*.mode1v3
-!default.mode1v3
-*.mode2v3
-!default.mode2v3
-*.perspectivev3
-!default.perspectivev3
-xcuserdata/
-*.xcworkspace
-*.xcodeproj/project.xcworkspace/
+# Metro
+.metro-health-check*
 
-# Android Studio specific files
-*.iml
-.idea/
-.gradle/
+# debug
+npm-debug.*
+yarn-debug.*
+yarn-error.*
 
-# VS Code settings
-.vscode/
-
-# macOS system files
+# macOS
 .DS_Store
+*.pem
 
-# Miscellaneous
-*.swp
+# local env files
+.env*.local
+
+# typescript
+*.tsbuildinfo

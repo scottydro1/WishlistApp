@@ -1,0 +1,22 @@
+{
+  "expo": {
+    "name": "SocialWorkerApp",
+    "slug": "SocialWorkerApp",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/img/logo/logo_white.png",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      }
+    },
+    "plugins": [
+      "expo-font"
+    ]
+  }
+}
