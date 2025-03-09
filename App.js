@@ -3,16 +3,8 @@ import { View, Text, ActivityIndicator, StyleSheet, Image } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import Dashboard from "./screens/Dashboard";
-import Forms from "./screens/Forms";
-import Caseload from "./screens/Caseload";
-import Planner from "./screens/Planner";
 import Login from "./screens/login";
 import Onboarding from "./screens/onboarding";
-import PlacementProvider from "./screens/PlacementProvider";
-import ClientPage from "./screens/ClientPage";
-import AddClient from "./screens/AddClient";
-import AddCase from "./screens/AddCase";
-import Messages from "./screens/Messages";
 import { Amplify, Auth } from "aws-amplify";
 import awsconfig from "./aws-exports";
 import { UserProvider } from "./contexts/UserContext";
@@ -96,49 +88,8 @@ export default function App() {
               options={{ headerShown: false }}
             />
             <Stack.Screen
-              name="PlacementProvider"
-              component={PlacementProvider}
-              options={{ headerShown: true, title: "Placement Provider" }}
-            />
-
-            <Stack.Screen
               name="Onboarding"
               component={Onboarding}
-              options={{ headerShown: false }}
-            />
-            <Stack.Screen
-              name="Forms"
-              component={Forms}
-              options={{ headerShown: false }}
-            />
-            <Stack.Screen
-              name="Caseload"
-              component={Caseload}
-              options={{ headerShown: false }}
-            />
-            <Stack.Screen
-              name="ClientPage"
-              component={ClientPage}
-              options={{ headerShown: true, title: "Client Details" }}
-            />
-            <Stack.Screen
-              name="Planner"
-              component={Planner}
-              options={{ headerShown: false }}
-            />
-            <Stack.Screen
-              name="AddClient"
-              component={AddClient}
-              options={{ headerShown: false, title: "Add New Client" }}
-            />
-            <Stack.Screen
-              name="AddCase"
-              component={AddCase}
-              options={{ headerShown: false }}
-            />
-            <Stack.Screen
-              name="Messages"
-              component={Messages}
               options={{ headerShown: false }}
             />
           </Stack.Navigator>
