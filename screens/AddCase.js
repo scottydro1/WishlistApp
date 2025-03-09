@@ -16,7 +16,6 @@ import { styles } from "../components/styles";
 import { LinearGradient } from "expo-linear-gradient";
 import { useCustomFonts } from "../assets/fonts";
 import DatePicker from 'react-native-date-picker';
-import DateTimePickerModal from "react-native-modal-datetime-picker";
 import { ModalAPI } from "../components/AlertModal";
 import AlertModal from "../components/AlertModal";
 
@@ -499,12 +498,7 @@ const AddCase = () => {
                     </TouchableOpacity>
 
                     {/* Date Picker Modal */}
-                    <DateTimePickerModal
-                        isVisible={isDatePickerVisible}
-                        mode="date"
-                        onConfirm={handleConfirm}
-                        onCancel={hideDatePicker}
-                    />
+                   
 
 
                     <Text style={styles.label_addcase}>Location:</Text>

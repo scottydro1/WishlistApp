@@ -10,7 +10,6 @@ import {
   StyleSheet,
   Image,
 } from "react-native";
-import DateTimePickerModal from "react-native-modal-datetime-picker";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { MaterialIcons } from "@expo/vector-icons";
@@ -440,13 +439,7 @@ const Dashboard = () => {
         </Modal>
 
         {/* Date Picker Modal */}
-        <DateTimePickerModal
-          isVisible={isDatePickerVisible}
-          mode="date"
-          date={selectedDate}
-          onConfirm={onDateSelected}
-          onCancel={closeDatePicker}
-        />
+      
       </View>
 
 
