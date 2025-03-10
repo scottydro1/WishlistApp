@@ -433,13 +433,13 @@ export const styles = StyleSheet.create({
     fontSize: 40,
     fontWeight: "600",
     textAlign: "center",
-    color: "#22BABB",
+    color: "#FFF",
   },
   titlesmall: {
     fontSize: 20,
     fontWeight: "600",
     textAlign: "center",
-    color: "#A6AEBF",
+    color: "#FFF",
     marginBottom: 20,
     marginTop: -10
   },
@@ -457,7 +457,6 @@ export const styles = StyleSheet.create({
   },
   gradientButton: {
     borderRadius: 10,
-    width: "100%",
     marginBottom: 10,
   },
   gradientButtonRegister: {
@@ -470,8 +469,8 @@ export const styles = StyleSheet.create({
   },
   buttonInner: {
     alignItems: "center",
-    paddingVertical: 10,
-    paddingHorizontal: 40,
+    paddingVertical: 20,
+    paddingHorizontal: 50,
     borderRadius: 10,
   },
   buttonText: {
@@ -480,7 +479,7 @@ export const styles = StyleSheet.create({
     fontWeight: "600",
   },
   buttonText1: {
-    color: "#747264",
+    color: "#fff",
     fontSize: 16,
     fontWeight: "600",
   },
@@ -561,22 +560,22 @@ export const styles = StyleSheet.create({
   },
 
   alreadyAccountText: {
-    marginTop: 15,
-    fontSize: 14,
-    color: "#22BABB",
+    marginTop: 5,
+    fontSize: 16,
+    color: "#fff",
     textAlign: "center",
     textDecorationLine: "underline",
   },
-  inputContainer: {
+  inputContainer_login: {
     flexDirection: "row",
     alignItems: "center",
-    borderWidth: 1,
-    borderColor: "#ccc",
-    borderRadius: 10,
-    paddingHorizontal: 10,
-    paddingVertical: 5,
-    marginBottom: 20,
+    borderWidth: 2,
+    borderColor: "#ddd",
+    borderRadius: 5,
+    padding: 10,
+    fontSize: 16
   },
+
   icon: {
     width: 20,
     height: 20,
@@ -585,8 +584,7 @@ export const styles = StyleSheet.create({
   input: {
     flex: 1,
     paddingLeft: 10,
-    color: "#758694", // Text color
-    fontSize: 16,
+    color: "#A6AEBF", // Text color
   },
   eyeIcon: {
     width: 20,
@@ -595,11 +593,10 @@ export const styles = StyleSheet.create({
   },
   forgotPasswordContainer: {
     alignItems: "flex-end",
-    marginBottom: 15, // Adjust spacing as needed
     paddingRight: 10, // Optional: Add padding to align with input fields
   },
   forgotPasswordText: {
-    color: "#22BABB", // Replace with your desired color
+    color: "#fff", // Replace with your desired color
     fontWeight: "bold",
     fontSize: 14, // Adjust font size as needed
     textDecorationLine: "underline", // Underline the text
@@ -947,6 +944,17 @@ export const styles = StyleSheet.create({
     borderColor: "#ddd",
     borderRadius: 5,
     padding: 10,
+    backgroundColor: "#fff"
+  },
+  inputContainer_register: {
+    flexDirection: "row",
+    alignItems: "center",
+    borderWidth: 2,
+    borderColor: "#ddd",
+    borderRadius: 5,
+    padding: 10,
+    backgroundColor: "#fff",
+    marginBottom: 10
   },
   modalFooter: {
     flexDirection: "row",
@@ -966,10 +974,7 @@ export const styles = StyleSheet.create({
   buttonSecondary: {
     backgroundColor: '#FF897A',
   },
-  buttonText: {
-    color: '#fff',
-    fontWeight: 'bold',
-  },
+
   input_dashboard: {
     justifyContent: "center",
     borderWidth: 1,

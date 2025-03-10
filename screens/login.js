@@ -401,6 +401,8 @@ export default function Login({ navigation }) {
     const keyboardDidShowListener = Keyboard.addListener(
       'keyboardDidShow',
       () => {
+        console.log("showkeyboard_login")
+
         Animated.parallel([
           Animated.timing(topImageAnim, {
             toValue: -Dimensions.get("window").height * 0.6, // Reset the top image
@@ -424,6 +426,7 @@ export default function Login({ navigation }) {
     const keyboardDidHideListener = Keyboard.addListener(
       'keyboardDidHide',
       () => {
+
         if (entryPoint === "login") {
           console.log("showkeyboard_login")
           Animated.parallel([
@@ -496,8 +499,7 @@ export default function Login({ navigation }) {
 
   return (
     <LinearGradient
-      colors={["#fff", "#fff"]}
-      start={{ x: 0.5, y: 0.1 }}
+      colors={["#F8C8DC", "#E0A3F2"]} // Light pink to soft purple      start={{ x: 0.5, y: 0.1 }}
       end={{ x: 0.5, y: 1 }} // Ending at the bottom center
       style={styles.container}
     >
@@ -512,7 +514,7 @@ export default function Login({ navigation }) {
           <View style={styles.bgimg}>
             {/* Circle Image */}
             <View style={styles.circleContainer}>
-              <Animated.Image
+              {/* <Animated.Image
                 source={require("../assets/img/bgs/shape4.png")}
                 style={[
                   {
@@ -523,9 +525,9 @@ export default function Login({ navigation }) {
                   { transform: [{ translateY: topImageAnim }] }, // Apply topImageAnim
                 ]}
                 resizeMode="contain"
-              />
+              /> */}
               {/* Logo Image inside the Circle */}
-              <Animated.Image
+              {/* <Animated.Image
                 source={require("../assets/img/logo/logo_white.png")}
                 style={[
                   styles.logoImage,
@@ -537,11 +539,11 @@ export default function Login({ navigation }) {
                   },
                 ]}
                 resizeMode="contain"
-              />
+              /> */}
             </View>
             {!showLoginForm && !isRegistering && showConfirmationForm && (
               <Text style={[styles.title, { fontFamily: "Poppins-ExtraBold" }]}>
-                Social Care
+                Wishlist App
               </Text>
             )}
 
@@ -632,7 +634,7 @@ export default function Login({ navigation }) {
                 {/* Email Input Field */}
                 <View style={styles.inputContainer}>
                   <Image
-                    source={require("../assets/img/ui_icons/mail.png")} // Replace with your email icon
+                    source={require("../assets/img/ui_icons/messages.png")} // Replace with your email icon
                     style={styles.icon}
                   />
                   <TextInput
@@ -645,7 +647,7 @@ export default function Login({ navigation }) {
                 </View>
 
                 {/* Password Input Field */}
-                <View style={styles.inputContainer}>
+                <View style={[styles.inputContainer, { marginTop: 20, marginBottom: 10, alignItems: "center" }]}>
                   <Image
                     source={require("../assets/img/ui_icons/lock.png")} // Replace with your lock icon
                     style={styles.icon}
@@ -671,18 +673,10 @@ export default function Login({ navigation }) {
                     />
                   </TouchableOpacity>
                 </View>
-                <View style={styles.forgotPasswordContainer}>
-                  <TouchableOpacity
-                    onPress={() => { setUsername("scottydro@gmail.com", setPassword("Tycoon!!11"), handleLogin("gototest")) }}
-                  >
-                    <Text style={styles.forgotPasswordText}>
-                      Forgot Password?
-                    </Text>
-                  </TouchableOpacity>
-                </View>
+
                 {/* Continue Button */}
                 <LinearGradient
-                  colors={["#FF897A", "#FF6F61"]}
+                  colors={["#009FC7", "#009FC7"]}
                   start={{ x: 0.5, y: 0.1 }}
                   end={{ x: 0.5, y: 1 }}
                   style={styles.gradientButton}
@@ -693,11 +687,20 @@ export default function Login({ navigation }) {
                     disabled={!showLoginForm}
                     pointerEvents={showLoginForm ? "auto" : "none"} // Disable interaction when hidden
                   >
-                    <Text style={styles.buttonText}>Continue</Text>
+                    <Text style={styles.buttonText}>{showLoginForm ? "Login" : "Register"}</Text>
                   </TouchableOpacity>
                 </LinearGradient>
 
                 {/* Sign-Up Link */}
+                <View style={styles.forgotPasswordContainer}>
+                  <TouchableOpacity
+                    onPress={() => { setUsername("scottydro@gmail.com", setPassword("Tycoon!!11"), handleLogin("gototest")) }}
+                  >
+                    <Text style={styles.forgotPasswordText}>
+                      Forgot Password?
+                    </Text>
+                  </TouchableOpacity>
+                </View>
                 <TouchableOpacity
                   onPress={() => { ShowRegistraionAnimation(), setEntryPoint("registration") }}
 
@@ -733,37 +736,24 @@ export default function Login({ navigation }) {
                     </Text>
                   </View>
                 </View>
-                <View style={styles.inputContainer}>
+                <View style={styles.inputContainer_register}>
                   <Image
-                    source={require("../assets/img/bgs/shape1.png")} // Replace with your user icon
+                    source={require("../assets/img/ui_icons/name.png")} // Replace with your user icon
                     style={styles.inputIcon}
                   />
                   <TextInput
                     style={styles.input}
-                    placeholder="First Name"
+                    placeholder="Name"
                     value={fname}
                     onChangeText={setfname}
                     placeholderTextColor="#A6AEBF"
                   />
                 </View>
 
-                <View style={styles.inputContainer}>
-                  <Image
-                    source={require("../assets/img/bgs/shape1.png")} // Replace with your user icon
-                    style={styles.inputIcon}
-                  />
-                  <TextInput
-                    style={styles.input}
-                    placeholder="Last Name"
-                    value={lname}
-                    onChangeText={setlname}
-                    placeholderTextColor="#A6AEBF"
-                  />
-                </View>
 
-                <View style={styles.inputContainer}>
+                <View style={styles.inputContainer_register}>
                   <Image
-                    source={require("../assets/img/bgs/shape1.png")} // Replace with your email icon
+                    source={require("../assets/img/ui_icons/messages.png")} // Replace with your email icon
                     style={styles.inputIcon}
                   />
                   <TextInput
@@ -774,8 +764,12 @@ export default function Login({ navigation }) {
                     placeholderTextColor="#A6AEBF"
                   />
                 </View>
-                <View style={styles.inputContainer}>
+                <View style={styles.inputContainer_register}>
                   {/* Country Code Selector */}
+                  <Image
+                    source={require("../assets/img/ui_icons/phone.png")} // Replace with your email icon
+                    style={styles.inputIcon}
+                  />
                   <TouchableOpacity
                     style={styles.countryCodeContainer}
                     onPress={() => setModalVisible(true)}
@@ -827,9 +821,9 @@ export default function Login({ navigation }) {
                     </View>
                   </Modal>
                 </View>
-                <View style={styles.inputContainer}>
+                <View style={styles.inputContainer_register}>
                   <Image
-                    source={require("../assets/img/bgs/shape1.png")} // Replace with your password icon
+                    source={require("../assets/img/ui_icons/lock.png")} // Replace with your password icon
                     style={styles.inputIcon}
                   />
                   <TextInput
@@ -842,9 +836,9 @@ export default function Login({ navigation }) {
                   />
                 </View>
 
-                <View style={styles.inputContainer}>
+                <View style={styles.inputContainer_register}>
                   <Image
-                    source={require("../assets/img/bgs/shape1.png")} // Replace with your confirm password icon
+                    source={require("../assets/img/ui_icons/lock.png")} // Replace with your confirm password icon
                     style={styles.inputIcon}
                   />
                   <TextInput
@@ -862,12 +856,12 @@ export default function Login({ navigation }) {
                 // onPress={() => testFunction()}
                 >
                   <LinearGradient
-                    colors={["#FFF7DF", "#F2E3B5"]}
+                    colors={["#009FC7", "#009FC7"]}
                     start={{ x: 0.5, y: 0.1 }}
                     end={{ x: 0.5, y: 0.5 }}
                     style={styles.buttonInner}
                   >
-                    <Text style={styles.buttonText1}>Continue</Text>
+                    <Text style={styles.buttonText1}>{showLoginForm ? "Login" : "Register"}</Text>
                   </LinearGradient>
                 </TouchableOpacity>
 
@@ -908,7 +902,7 @@ export default function Login({ navigation }) {
                 <View style={styles.formContainer}>
                   <View style={styles.inputContainer}>
                     <Image
-                      source={require("../assets/img/ui_icons/messages.png")} // Replace with your email icon
+                      source={require("../assets/img/ui_icons/phone.png")} // Replace with your email icon
                       style={styles.icon}
                     />
                     <TextInput
@@ -917,6 +911,7 @@ export default function Login({ navigation }) {
                       value={confirmationCode}
                       onChangeText={setConfirmationCode}
                       placeholderTextColor="#A6AEBF"
+
                     />
                   </View>
 
@@ -984,7 +979,7 @@ export default function Login({ navigation }) {
             </View>
           )}
         </SafeAreaView>
-        <Animated.Image
+        {/* <Animated.Image
           source={require("../assets/img/bgs/shape1.png")}
           style={[
             {
@@ -998,7 +993,7 @@ export default function Login({ navigation }) {
             { transform: [{ translateX: bottomImageAnim }] }, // Apply bottomImageAnim
           ]}
           resizeMode="contain"
-        />
+        /> */}
       </KeyboardAvoidingView>
     </LinearGradient>
   );
